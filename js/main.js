@@ -58,39 +58,66 @@
         var isNetlify = form.attr('data-netlify') === 'true';
         
         if (isFormspree) {
-            // Submit form via Formspree
-            // Add Accept header for JSON response
-            var formData = form.serialize();
+            // Submit form via Formspree using fetch API for better compatibility
+            var formData = new FormData(form[0]);
             
-            $.ajax({
-                url: formAction,
+            // Set timeout to prevent hanging
+            var timeout = setTimeout(function() {
+                showFormMessage('Время ожидания истекло. Проверьте интернет-соединение и попробуйте еще раз.', 'error');
+                submitBtn.prop('disabled', false).text(originalText);
+            }, 30000); // 30 seconds timeout
+            
+            fetch(formAction, {
                 method: 'POST',
-                data: formData,
-                dataType: 'json',
+                body: formData,
                 headers: {
                     'Accept': 'application/json'
-                },
-                success: function(response) {
-                    showFormMessage('Спасибо! Ваше сообщение отправлено, мы свяжемся с вами в ближайшее время.', 'success');
-                    form[0].reset();
-                    submitBtn.prop('disabled', false).text(originalText);
-                    
-                    // Scroll to message
-                    $('html, body').animate({
-                        scrollTop: $('#form-message').offset().top - 100
-                    }, 500);
-                },
-                error: function(xhr) {
-                    var errorMessage = 'Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз или свяжитесь с нами напрямую.';
-                    
-                    // Try to parse error message from Formspree
-                    if (xhr.responseJSON && xhr.responseJSON.error) {
-                        errorMessage = xhr.responseJSON.error;
-                    }
-                    
-                    showFormMessage(errorMessage, 'error');
-                    submitBtn.prop('disabled', false).text(originalText);
                 }
+            })
+            .then(function(response) {
+                clearTimeout(timeout);
+                
+                // Check if response is OK
+                if (response.ok) {
+                    // Try to parse as JSON
+                    return response.json().catch(function() {
+                        // If not JSON, still consider it success (Formspree sometimes returns HTML)
+                        return { ok: true };
+                    });
+                } else {
+                    // Try to parse error as JSON
+                    return response.json().then(function(error) {
+                        throw error;
+                    }).catch(function() {
+                        throw { error: 'Ошибка сервера' };
+                    });
+                }
+            })
+            .then(function(data) {
+                showFormMessage('Спасибо! Ваше сообщение отправлено, мы свяжемся с вами в ближайшее время.', 'success');
+                form[0].reset();
+                submitBtn.prop('disabled', false).text(originalText);
+                
+                // Scroll to message
+                setTimeout(function() {
+                    var messageEl = document.getElementById('form-message');
+                    if (messageEl) {
+                        messageEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }, 100);
+            })
+            .catch(function(error) {
+                clearTimeout(timeout);
+                var errorMessage = 'Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз или свяжитесь с нами напрямую.';
+                
+                if (error && error.error) {
+                    errorMessage = error.error;
+                } else if (error && typeof error === 'string') {
+                    errorMessage = error;
+                }
+                
+                showFormMessage(errorMessage, 'error');
+                submitBtn.prop('disabled', false).text(originalText);
             });
         } else if (isNetlify) {
             // For Netlify Forms
