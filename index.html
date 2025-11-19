@@ -15,15 +15,20 @@
 
 <header class="site-header">
     <div class="header-content">
-        <a href="/" class="logo">
-            impulse
-        </a>
-        
-        <nav class="main-nav">
+        <nav class="nav-left">
             <a href="#portfolio">Портфолио</a>
             <a href="#price">Прайс-лист</a>
+        </nav>
+        
+        <a href="#hero" class="logo">
+            <img src="images/Group 627791.png" alt="IMPULSE" class="logo-icon" onerror="this.style.display='none'">
+        </a>
+        
+        <nav class="nav-right">
+            <a href="#contact" class="btn-consultation">
+                Консультация
+            </a>
             <a href="#about">О компании</a>
-            <a href="#contact" class="btn-consultation">Консультация</a>
         </nav>
     </div>
 </header>
@@ -31,7 +36,7 @@
 <main id="main" class="site-main">
     
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero-section" id="hero">
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Креативный Консалтинг для вашего бизнеса</h1>
@@ -40,100 +45,147 @@
                 Выиграть в грантовом конкурсе?<br><br>
                 Поможем создать бизнес-план с упором на финансы и уникальность</p>
                 <a href="#contact" class="btn-primary">
+                    <img src="images/Line_up.png" alt="" class="btn-icon">
                     Заказать бизнес-план
                 </a>
             </div>
-            <div class="hero-image">
-                <img src="images/image 5 (2).png" alt="Impulse Creative Consulting" onerror="this.style.display='none'">
+            <div class="hero-slider">
+                <button class="slider-arrow slider-arrow-prev" aria-label="Предыдущий слайд">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 12L16 20L24 28" stroke="#25252D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M28 12L20 20L28 28" stroke="#25252D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="slider-container">
+                    <div class="slider-track">
+                        <div class="slider-slide active">
+                            <img src="images/Group 340.png" alt="Бизнес-план" onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="images/Group 312.png" alt="Маркетинговое исследование: TaskFloww" onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="images/Group 314.png" alt="Бизнес-план: Ферментелла" onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="images/Group 319.png" alt="Бизнес-план: Лечебный центр" onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="images/Group 320.png" alt="Маркетинговый анализ: Ферментелла" onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="images/Group 322.png" alt="Бизнес-план: Яблоки и груши" onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="images/Group 324.png" alt="Бизнес-план: Отопительное оборудование" onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="images/Group 325.png" alt="Бизнес-план: Двери и комплектующие" onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="images/Group 326.png" alt="Бизнес-план: Мебельное производство" onerror="this.style.display='none'">
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-arrow slider-arrow-next" aria-label="Следующий слайд">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 12L24 20L16 28" stroke="#25252D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 12L20 20L12 28" stroke="#25252D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
         </div>
     </section>
 
     <!-- Stats Section -->
     <section class="stats-section">
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number">>30</div>
-                <div class="stat-label">готовых бизнесов</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">>539</div>
-                <div class="stat-label">млн ₽ инвестиций</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">134+</div>
-                <div class="stat-label">финансовых моделей</div>
+        <img src="images/Group 375655733333.png" alt="Достижения компании" class="stats-image" onerror="this.style.display='none'">
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="services-wrapper">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">Бизнес-планы</div>
+                <div class="service-card">Финансовые модели</div>
+                <div class="service-card">Анализ рынка</div>
+                <div class="service-card">Налоговые справки</div>
+                <div class="service-card">Юридическая консультация</div>
+                <div class="service-card">Составление договоров</div>
+                <div class="service-card">Построение отдела продаж</div>
+                <div class="service-card">Построение финансовой отчетности</div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="about-section" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title">О нас</h2>
-                    <div class="about-description">
-                        <p>✍🏻 Бизнес-планы для стартапов на суммы от 1 до 30 млн ₽, технологические проекты в областях AI, SaaS, дронов, ПО, креативных индустрий.</p>
-                        <p>✍🏻 Бизнес-планы для промышленных предприятий — от 100 млн до 2,3 млрд ₽.</p>
-                        <p>✍🏻 Успешное привлечение инвестиций через ФРП, КРДВ, Мой Бизнес, частные фонды.</p>
-                        <p>✍🏻 Практический опыт управления стартап-проектами, взаимодействия с инвесторами и экспертными комиссиями.</p>
-                        <p><strong>Доверьте разработку бизнес-плана нам сэкономив время.</strong></p>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="images/peoples.png" alt="О компании" onerror="this.style.display='none'">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services-section">
-        <div class="container">
-            <h2 class="section-title">Наши услуги</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Бизнес-планы</h3>
-                    <p>Разработка бизнес-планов для стартапов и промышленных предприятий</p>
-                </div>
-                <div class="service-card">
-                    <h3>Финансовое моделирование</h3>
-                    <p>Создание финансовых моделей и настройка отчетности</p>
-                </div>
-                <div class="service-card">
-                    <h3>Инвестиционные предложения</h3>
-                    <p>Подготовка pitch deck и стратегий переговоров с инвесторами</p>
-                </div>
-            </div>
-        </div>
+        <img src="images/Group 6276666666.png" alt="О компании" class="about-image" onerror="this.style.display='none'">
     </section>
 
     <!-- Portfolio Section -->
     <section class="portfolio-section" id="portfolio">
-        <div class="container">
-            <h2 class="section-title">Последние работы</h2>
-            <div class="portfolio-grid">
-                <!-- Portfolio items -->
-                <div class="portfolio-item">
-                    <img src="images/Group 311 (1).png" alt="Портфолио 1" onerror="this.style.display='none'">
+        <div class="portfolio-container">
+            <div class="portfolio-content">
+                <div class="portfolio-info">
+                    <h2 class="portfolio-title">Последние работы</h2>
+                    <div class="portfolio-project-details" id="portfolioProjectDetails">
+                        <div class="project-number">№01</div>
+                        <div class="project-name">Бизнес-план: Создание лечебно-оздоровительного центра</div>
+                        <div class="project-category">Здравоохранение</div>
+                    </div>
+                    <a href="#contact" class="portfolio-contact-btn">Связаться</a>
                 </div>
-                <div class="portfolio-item">
-                    <img src="images/Group 312.png" alt="Портфолио 2" onerror="this.style.display='none'">
-                </div>
-                <div class="portfolio-item">
-                    <img src="images/Group 314.png" alt="Портфолио 3" onerror="this.style.display='none'">
-                </div>
-                <div class="portfolio-item">
-                    <img src="images/Group 319.png" alt="Портфолио 4" onerror="this.style.display='none'">
+                <div class="portfolio-slider-wrapper">
+                    <div class="portfolio-arrows-top">
+                        <button class="portfolio-arrow portfolio-arrow-prev" aria-label="Предыдущий слайд">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="11" stroke="white" stroke-width="2" fill="none"/>
+                                <path d="M14 16L10 12L14 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="portfolio-arrow portfolio-arrow-next" aria-label="Следующий слайд">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="11" stroke="white" stroke-width="2" fill="none"/>
+                                <path d="M10 16L14 12L10 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="portfolio-slider-container">
+                        <div class="portfolio-slider-track">
+                            <div class="portfolio-slide active" data-project="1" data-name="Бизнес-план: Создание лечебно-оздоровительного центра" data-category="Здравоохранение" data-value="250 млн рублей">
+                                <img src="images/Group 312.png" alt="Бизнес-план: Создание лечебно-оздоровительного центра" onerror="this.style.display='none'">
+                            </div>
+                            <div class="portfolio-slide" data-project="2" data-name="Бизнес-план: Производство отопительного оборудования для многоквартирных домов и ИЖС" data-category="Производство" data-value="250 млн рублей">
+                                <img src="images/Group 326.png" alt="Бизнес-план: Производство отопительного оборудования" onerror="this.style.display='none'">
+                            </div>
+                            <div class="portfolio-slide" data-project="3" data-name="Бизнес-план: Создание пекарни импортных сладостей" data-category="Пищевая промышленность" data-value="250 млн рублей">
+                                <img src="images/Group 314.png" alt="Бизнес-план: Создание пекарни импортных сладостей" onerror="this.style.display='none'">
+                            </div>
+                            <div class="portfolio-slide" data-project="4" data-name="Бизнес-план: Производство яблок и груш в Приморском крае" data-category="Сельское хозяйство" data-value="250 млн рублей">
+                                <img src="images/Group 322.png" alt="Бизнес-план: Яблоки и груши" onerror="this.style.display='none'">
+                            </div>
+                            <div class="portfolio-slide" data-project="5" data-name="Бизнес-план: Ферментелла" data-category="Пищевая промышленность" data-value="250 млн рублей">
+                                <img src="images/Group 320.png" alt="Бизнес-план: Ферментелла" onerror="this.style.display='none'">
+                            </div>
+                            <div class="portfolio-slide" data-project="6" data-name="Бизнес-план: Производство дверей, дверных каркасов и комплектующих" data-category="Производство" data-value="250 млн рублей">
+                                <img src="images/Group 325.png" alt="Бизнес-план: Двери и комплектующие" onerror="this.style.display='none'">
+                            </div>
+                            <div class="portfolio-slide" data-project="7" data-name="Бизнес-план: Мебельное производство (аналог IKEA)" data-category="Производство" data-value="250 млн рублей">
+                                <img src="images/Group 324.png" alt="Бизнес-план: Мебельное производство" onerror="this.style.display='none'">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="portfolio-indicators"></div>
         </div>
     </section>
 
     <!-- Price List Section -->
     <section class="price-section" id="price">
-        <div class="container">
+        <div class="price-wrapper">
             <h2 class="section-title">ПРАЙС-ЛИСТ:</h2>
             <div class="price-categories">
                 <!-- Готовый бизнес -->
@@ -143,19 +195,7 @@
                     </div>
                     <div class="price-items">
                         <div class="price-item">
-                            <div class="price-item-name">Бизнес-план (бизнес-модель, анализ рынка, финансовая модель)</div>
-                            <div class="price-item-value">45 000 ₽</div>
-                        </div>
-                        <div class="price-item">
-                            <div class="price-item-name">Бизнес-план (бизнес-модель, анализ рынка, подробная финансовая модель, +маркетинг-план, +подбор оборудования)</div>
-                            <div class="price-item-value">80 000 ₽</div>
-                        </div>
-                        <div class="price-item">
-                            <div class="price-item-name">Подготовка инвестиционных предложений (pitch deck, стратегий переговоров с инвестором)</div>
-                            <div class="price-item-value">25 000 ₽</div>
-                        </div>
-                        <div class="price-item">
-                            <div class="price-item-name">Договор инвестирования</div>
+                            <div class="price-item-name">Бизнес-план</div>
                             <div class="price-item-value">25 000 ₽</div>
                         </div>
                         <div class="price-item">
@@ -163,12 +203,73 @@
                             <div class="price-item-value">3 000 ₽</div>
                         </div>
                         <div class="price-item">
-                            <div class="price-item-name">223-ФЗ Написание ТЗ на тендер</div>
+                            <div class="price-item-name">223-ФЗ ТЗ на тендер</div>
+                            <div class="price-item-value">10 000 ₽</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Юр. услуги -->
+                <div class="price-category">
+                    <div class="category-header">
+                        <div class="category-title">Юр. услуги</div>
+                    </div>
+                    <div class="price-items">
+                        <div class="price-item">
+                            <div class="price-item-name">Консультация с юристом</div>
+                            <div class="price-item-value">5 500 ₽</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-item-name">Договор инвестирования</div>
+                            <div class="price-item-value">20 000 ₽</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-item-name">Подготовка инвестпредложений</div>
+                            <div class="price-item-value">20 000 ₽</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-item-name">Разработка договора</div>
                             <div class="price-item-value">10 000 ₽</div>
                         </div>
                         <div class="price-item">
-                            <div class="price-item-name">Консультация с юристом по договорам и зем. вопросам</div>
+                            <div class="price-item-name">Проверка договора</div>
                             <div class="price-item-value">5 000 ₽</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-item-name">Претензия / ответ</div>
+                            <div class="price-item-value">10 000 ₽</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-item-name">Юридический аутсорсинг (по договоренности)</div>
+                            <div class="price-item-value">9 000 ₽</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-item-name">Судебное представление</div>
+                            <div class="price-item-value">50 000 ₽</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-item-name">Представительство в госорганах</div>
+                            <div class="price-item-value">30 000 ₽</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-item-name">Сопровождение M&A (процесс объединения активов двух компаний)</div>
+                            <div class="price-item-value">120 000 ₽</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-item-name">Создание / реорганизация / ликвидация</div>
+                            <div class="price-item-value">30 000 ₽</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-item-name">Консультация по правовым вопросам</div>
+                            <div class="price-item-value">7 000 ₽</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-item-name">Кадровые документы (комплект)</div>
+                            <div class="price-item-value">10 000 ₽</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-item-name">Юридический Due Diligence (правовая экспертиза контрагента, включающая проверку документации компании)</div>
+                            <div class="price-item-value">40 000 ₽</div>
                         </div>
                     </div>
                 </div>
@@ -176,7 +277,7 @@
                 <!-- Финансы -->
                 <div class="price-category">
                     <div class="category-header">
-                        <div class="category-title">Финансы:</div>
+                        <div class="category-title">Финансы</div>
                     </div>
                     <div class="price-items">
                         <div class="price-item">
@@ -184,16 +285,16 @@
                             <div class="price-item-value">20 000 ₽</div>
                         </div>
                         <div class="price-item">
-                            <div class="price-item-name">Настройка финансовой отчетности</div>
-                            <div class="price-item-value">40 000 ₽</div>
+                            <div class="price-item-name">Настройка фин. отчётности</div>
+                            <div class="price-item-value">35 000 ₽</div>
                         </div>
                         <div class="price-item">
-                            <div class="price-item-name">Финансовая консультация (60 минут)</div>
-                            <div class="price-item-value">5 000 ₽</div>
+                            <div class="price-item-name">Финансовая консультация</div>
+                            <div class="price-item-value">5 500 ₽</div>
                         </div>
                         <div class="price-item">
-                            <div class="price-item-name">Оценка стоимости (валюта баланса, рентабельность, стоимость лида, объем закупок, доля эффективных предложений, гуд вил)</div>
-                            <div class="price-item-value">5 000 ₽</div>
+                            <div class="price-item-name">Оценка стоимости компании</div>
+                            <div class="price-item-value">20 000 ₽</div>
                         </div>
                     </div>
                 </div>
@@ -201,24 +302,24 @@
                 <!-- Налоги -->
                 <div class="price-category">
                     <div class="category-header">
-                        <div class="category-title">Налоги:</div>
+                        <div class="category-title">Налоги</div>
                     </div>
                     <div class="price-items">
                         <div class="price-item">
                             <div class="price-item-name">Создание налоговых справок</div>
-                            <div class="price-item-value">5 000 ₽</div>
+                            <div class="price-item-value">7 500 ₽</div>
                         </div>
                         <div class="price-item">
-                            <div class="price-item-name">Консультация по налоговому учету (60 минут)</div>
-                            <div class="price-item-value">5 000 ₽</div>
+                            <div class="price-item-name">Консультация по налоговому учёту</div>
+                            <div class="price-item-value">5 500 ₽</div>
                         </div>
                         <div class="price-item">
-                            <div class="price-item-name">Консультация по налоговой форме (60 минут)</div>
-                            <div class="price-item-value">5 000 ₽</div>
+                            <div class="price-item-name">Консультация по налоговой форме</div>
+                            <div class="price-item-value">5 500 ₽</div>
                         </div>
                         <div class="price-item">
-                            <div class="price-item-name">Настройка налоговой отчетности</div>
-                            <div class="price-item-value">5 000-10 000 ₽</div>
+                            <div class="price-item-name">Настройка налоговой отчётности</div>
+                            <div class="price-item-value">7 500 ₽</div>
                         </div>
                     </div>
                 </div>
@@ -226,20 +327,20 @@
                 <!-- Анализ рынка -->
                 <div class="price-category">
                     <div class="category-header">
-                        <div class="category-title">Анализ рынка:</div>
+                        <div class="category-title">Анализ рынка</div>
                     </div>
                     <div class="price-items">
                         <div class="price-item">
-                            <div class="price-item-name">Анализ конкурентов для разведки (анализ рынка, конкурентов)</div>
-                            <div class="price-item-value">10-15 000 ₽</div>
+                            <div class="price-item-name">Анализ конкурентов для бизнеса</div>
+                            <div class="price-item-value">12 500 ₽</div>
                         </div>
                         <div class="price-item">
-                            <div class="price-item-name">Анализ конкурентов для бренда (анализ позиционирования, конкурентов, сравнение УТП, стратегия бренда)</div>
-                            <div class="price-item-value">10 000 ₽</div>
+                            <div class="price-item-name">Анализ конкурентов для бренда</div>
+                            <div class="price-item-value">12 000 ₽</div>
                         </div>
                         <div class="price-item">
-                            <div class="price-item-name">Анализ конкурентов для стартапа (анализ рынка, конкурентов, проведение опросов, маркетинговая стратегия, бизнес-стратегия)</div>
-                            <div class="price-item-value">25 000 ₽</div>
+                            <div class="price-item-name">Анализ конкурентов для стартапа</div>
+                            <div class="price-item-value">15 000 ₽</div>
                         </div>
                     </div>
                 </div>
@@ -247,16 +348,16 @@
                 <!-- Продажи -->
                 <div class="price-category">
                     <div class="category-header">
-                        <div class="category-title">Продажи:</div>
+                        <div class="category-title">Продажи</div>
                     </div>
                     <div class="price-items">
                         <div class="price-item">
-                            <div class="price-item-name">Построение эффективного отдела продаж</div>
+                            <div class="price-item-name">Построение отдела продаж</div>
                             <div class="price-item-value">30 000 ₽</div>
                         </div>
                         <div class="price-item">
                             <div class="price-item-name">Создание отдела продаж</div>
-                            <div class="price-item-value">20-40 000 ₽</div>
+                            <div class="price-item-value">30 000 ₽</div>
                         </div>
                     </div>
                 </div>
@@ -268,25 +369,19 @@
     <section class="contact-section" id="contact">
         <div class="contact-form-wrapper">
             <h2 class="section-title">Запишитесь на консультацию</h2>
-            <p style="text-align: center; margin-bottom: 40px; font-family: 'Manrope', sans-serif; font-size: 25px;">
-                Расскажу какие у нас есть продукты и как мы можем закрыть задачи вашего бизнеса
-            </p>
-            <!-- Форма настроена через Formspree -->
-            <form class="contact-form" id="contactForm" method="POST" action="https://formspree.io/f/xvgdlkaw">
+            <p class="contact-description">Расскажу какие у нас есть продукты и как мы можем закрыть задачи вашего бизнеса</p>
+            <form class="contact-form" id="contactForm" method="post" data-netlify="true">
+                <input type="hidden" name="form-name" value="contact">
                 <div class="form-group">
-                    <input type="text" name="name" id="contact_name" placeholder="name" required>
+                    <input type="text" name="contact_name" placeholder="name" required>
                 </div>
                 
                 <div class="form-group">
-                    <input type="tel" name="phone" id="contact_phone" placeholder="phone" required>
+                    <input type="tel" name="contact_phone" placeholder="phone" required>
                 </div>
                 
                 <div class="form-group">
-                    <input type="email" name="email" id="contact_email" placeholder="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <textarea name="message" id="contact_message" placeholder="Сообщение (необязательно)"></textarea>
+                    <input type="email" name="contact_email" placeholder="email" required>
                 </div>
                 
                 <div class="form-checkbox">
@@ -296,32 +391,52 @@
                 
                 <button type="submit" class="submit-btn">Отправить</button>
             </form>
-            
-            <div id="form-message" style="display: none; margin-top: 20px; padding: 20px; border-radius: 10px; text-align: center;"></div>
         </div>
+    </section>
+
+    <!-- New Section -->
+    <section class="new-section">
+        <img src="images/Group 627793.png" alt="" class="new-section-image" onerror="this.style.display='none'">
     </section>
 
 </main>
 
 <footer class="site-footer">
     <div class="footer-content">
-        <div class="footer-column">
-            <h3>Контакты</h3>
-            <a href="mailto:person.yd@gmail.com">person.yd@gmail.com</a>
-            <a href="tel:+79147945581">+7 914 794 5581</a>
-            <p>Мы есть в телеграм:</p>
-            <a href="https://t.me/Impulse_con" target="_blank">Impulse_con</a>
-            <p>Портфолио | Шаблоны | Объявления | Инсайты | Скидки</p>
+        <div class="footer-left">
+            <a href="mailto:person.yd@gmail.com" class="footer-contact-item">
+                <img src="images/at-fill.png" alt="Email" class="footer-icon">
+                <span>PERSON.YD@GMAIL.COM</span>
+            </a>
+            <a href="tel:+79147945581" class="footer-contact-item">
+                <img src="images/whatsapp-line.png" alt="WhatsApp" class="footer-icon">
+                <span>+7 914 794 5581</span>
+            </a>
+            <div class="footer-telegram-wrapper">
+                <span class="footer-telegram-label">Мы есть В телеграм:</span>
+                <a href="https://t.me/Impulse_consult" target="_blank" class="footer-contact-item">
+                    <img src="images/send-plane-line.png" alt="Telegram" class="footer-icon">
+                    <span>Impulse_consult</span>
+                </a>
+            </div>
+            <p class="footer-links">Портфолио | Шаблоны | Объявления | Инсайты | Скидки</p>
         </div>
-        
-        <div class="footer-column">
-            <!-- Additional footer content can go here -->
+        <div class="footer-right">
+            <div class="footer-logo">
+                <img src="images/Group 30 (3).png" alt="IMPULSE" class="footer-logo-image">
+            </div>
         </div>
     </div>
-    
     <div class="footer-bottom">
-        <p>Импульс Креативный Консалтинг</p>
-        <p>Проект ИП Довгой Дианы Николаевны<br>ИНН 253911709482</p>
+        <div class="footer-bottom-left">
+            <p>Импульс Креативный Консалтинг</p>
+        </div>
+        <div class="footer-bottom-right">
+            <div class="footer-legal">
+                <p>ИП Довгой Дианы Николаевны</p>
+                <p>ИНН 253911709482</p>
+            </div>
+        </div>
     </div>
 </footer>
 
@@ -332,4 +447,5 @@
 
 </body>
 </html>
+
 
