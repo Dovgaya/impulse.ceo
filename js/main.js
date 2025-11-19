@@ -20,9 +20,8 @@
     // Form validation and submission
     $('#contactForm').on('submit', function(e) {
         e.preventDefault();
-        
-        var isValid = true;
         var form = $(this);
+        var isValid = true;
         
         // Clear previous errors
         form.find('input, textarea').css('border', 'none');
@@ -53,42 +52,68 @@
         var originalText = submitBtn.text();
         submitBtn.prop('disabled', true).text('Отправка...');
         
-        // Check if using Netlify Forms (has data-netlify attribute)
-        if (form.attr('data-netlify') === 'true' && (!form.attr('action') || form.attr('action').includes('YOUR_FORM_ID'))) {
-            // Netlify Forms - let form submit normally
-            // Netlify will handle it server-side
-            return true;
-        }
-        
         // Check if Formspree is configured
         var formAction = form.attr('action');
-        if (!formAction || formAction.includes('YOUR_FORM_ID')) {
-            showFormMessage('Пожалуйста, настройте форму обратной связи. См. инструкцию в файле ИНСТРУКЦИЯ-ПУБЛИКАЦИЯ.md', 'error');
-            submitBtn.prop('disabled', false).text(originalText);
-            return false;
-        }
+        var isFormspree = formAction && formAction.includes('formspree.io');
+        var isNetlify = form.attr('data-netlify') === 'true';
         
-        // Submit form via Formspree
-        $.ajax({
-            url: formAction,
-            method: 'POST',
-            data: form.serialize(),
-            dataType: 'json',
-            success: function(response) {
+        if (isFormspree) {
+            // Submit form via Formspree
+            // Add Accept header for JSON response
+            var formData = form.serialize();
+            
+            $.ajax({
+                url: formAction,
+                method: 'POST',
+                data: formData,
+                dataType: 'json',
+                headers: {
+                    'Accept': 'application/json'
+                },
+                success: function(response) {
+                    showFormMessage('Спасибо! Ваше сообщение отправлено, мы свяжемся с вами в ближайшее время.', 'success');
+                    form[0].reset();
+                    submitBtn.prop('disabled', false).text(originalText);
+                    
+                    // Scroll to message
+                    $('html, body').animate({
+                        scrollTop: $('#form-message').offset().top - 100
+                    }, 500);
+                },
+                error: function(xhr) {
+                    var errorMessage = 'Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз или свяжитесь с нами напрямую.';
+                    
+                    // Try to parse error message from Formspree
+                    if (xhr.responseJSON && xhr.responseJSON.error) {
+                        errorMessage = xhr.responseJSON.error;
+                    }
+                    
+                    showFormMessage(errorMessage, 'error');
+                    submitBtn.prop('disabled', false).text(originalText);
+                }
+            });
+        } else if (isNetlify) {
+            // For Netlify Forms
+            var netlifyFormData = new FormData(form[0]);
+            var encoded = new URLSearchParams(netlifyFormData).toString();
+            
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: encoded
+            }).then(function() {
                 showFormMessage('Спасибо! Ваше сообщение отправлено, мы свяжемся с вами в ближайшее время.', 'success');
                 form[0].reset();
                 submitBtn.prop('disabled', false).text(originalText);
-                
-                // Scroll to message
-                $('html, body').animate({
-                    scrollTop: $('#form-message').offset().top - 100
-                }, 500);
-            },
-            error: function(xhr) {
+            }).catch(function(error) {
                 showFormMessage('Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз или свяжитесь с нами напрямую.', 'error');
                 submitBtn.prop('disabled', false).text(originalText);
-            }
-        });
+            });
+        } else {
+            // Form not configured
+            showFormMessage('Форма не настроена. Пожалуйста, укажите Formspree endpoint или используйте Netlify.', 'error');
+            submitBtn.prop('disabled', false).text(originalText);
+        }
         
         return false;
     });

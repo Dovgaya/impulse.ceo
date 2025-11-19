@@ -370,18 +370,21 @@
         <div class="contact-form-wrapper">
             <h2 class="section-title">Запишитесь на консультацию</h2>
             <p class="contact-description">Расскажу какие у нас есть продукты и как мы можем закрыть задачи вашего бизнеса</p>
-            <form class="contact-form" id="contactForm" method="post" data-netlify="true">
-                <input type="hidden" name="form-name" value="contact">
+            <form class="contact-form" id="contactForm" method="POST" action="https://formspree.io/f/xvgdlkaw">
+                <input type="hidden" name="_subject" value="Новая заявка с сайта Impulse.ceo">
+                <input type="hidden" name="_format" value="plain">
+                <input type="hidden" name="_cc" value="">
+                
                 <div class="form-group">
-                    <input type="text" name="contact_name" placeholder="name" required>
+                    <input type="text" name="Имя" placeholder="Имя" required>
                 </div>
                 
                 <div class="form-group">
-                    <input type="tel" name="contact_phone" placeholder="phone" required>
+                    <input type="tel" name="Телефон" placeholder="Телефон" required>
                 </div>
                 
                 <div class="form-group">
-                    <input type="email" name="contact_email" placeholder="email" required>
+                    <input type="email" name="Email" placeholder="Email" required>
                 </div>
                 
                 <div class="form-checkbox">
@@ -390,6 +393,7 @@
                 </div>
                 
                 <button type="submit" class="submit-btn">Отправить</button>
+                <div id="form-message" style="display: none; margin-top: 20px; padding: 15px; border-radius: 10px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 16px;"></div>
             </form>
         </div>
     </section>
